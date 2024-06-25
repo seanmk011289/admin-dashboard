@@ -3,16 +3,18 @@
   --blue: #1992d4;
   --gray: #e2e8f0;
   --gold: #f0b429;
+  --heading: #121212;
+  --text: #343434;
 }
 
 /* Fonts */
 @font-face {
-  font-family: "Pangram Sans Regular";
+  font-family: "PS Regular";
   src: url("./fonts/PPPangramSans-Regular.ttf");
 }
 
 @font-face {
-  font-family: "Pangram Sans Medium";
+  font-family: "PS Medium";
   src: url("./fonts/PPPangramSans-Medium.ttf");
 }
 
@@ -20,6 +22,25 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "PS Medium";
+  color: var(--heading);
+}
+
+p,
+li {
+  font-family: "PS Regular";
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
 }
 
 .mainContainer {
@@ -37,6 +58,37 @@
     position: relative;
     z-index: 2;
     margin-right: -15px;
+    display: flex;
+
+    .leftMenu {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+
+      li {
+        margin: 15px 0;
+      }
+    }
+
+    .dashLogo,
+    a {
+      color: white;
+    }
+
+    .dashLogo {
+      font-size: 1.3rem;
+    }
+
+    a {
+      font-size: 1.1rem;
+    }
   }
 
   .mainRight {
@@ -49,6 +101,7 @@
     .nav {
       background: white;
       flex: 1;
+      min-height: 100px;
     }
     .mainStage {
       flex: 4;
@@ -56,7 +109,43 @@
 
       .projects {
         flex: 3;
-        background: pink;
+        padding: 20px;
+        padding-left: 32px;
+
+        h5 {
+          margin-bottom: 20px;
+        }
+
+        .cardContainer {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          /* grid-template-rows: repeat(3, 1fr); */
+          gap: 32px;
+          overflow: scroll;
+
+          .card {
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+
+            .top {
+              margin-bottom: 20px;
+
+              .cardTitle {
+                margin-bottom: 10px;
+              }
+            }
+
+            .bottomIcons {
+              text-align: right;
+
+              img {
+                margin-right: 8px;
+              }
+            }
+          }
+        }
       }
       .sideBar {
         flex: 1;
